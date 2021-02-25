@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const postsModel = require('./app/models/posts');
+const postsModel = require('./models/posts');
 
 const sequelize = new Sequelize('alkemy_db', 'root', 'basepass', {
     host: 'localhost',

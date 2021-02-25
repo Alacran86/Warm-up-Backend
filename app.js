@@ -4,9 +4,9 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const bodyParser  = require ('body-parser') 
 
-const indexRouter = require('./app/routes/routes');
-const usersRouter = require('./app/routes/users');
-const db = require('./app/models/posts')
+const indexRouter = require('./routes/routes');
+
+const db = require('./models/posts')
 const app = express();
 
 require('./db')
@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+
 app.listen(4000, () =>{
     console.log("Escuchando en http://localhost:4000")
 } );
