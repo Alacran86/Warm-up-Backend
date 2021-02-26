@@ -21,7 +21,12 @@ router.get('/:id', async(req, res) =>{
     where: {id}
    
     });
-   res.json(byId);
+    if (!byId){
+      res.json({mensaje:"No existe ID"})
+    } else {
+      res.json(byId);
+    }
+   
     
   } catch (error) {
     res.json(error);
@@ -36,7 +41,11 @@ router.post('/', async(req, res) =>{
 
 /* actualizar un archivo con patch averiguar*/
 router.patch('/:id', async(req, res) =>{
-  
+  const { id } = req.params;
+  const [numberOfAffectedRows] = await posts.update(req.body, {
+    where: { id }
+  });
+  res.json(numberOfAffectedRows);
 });
 
 router.delete('/:id', async(req, res) =>{

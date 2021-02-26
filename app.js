@@ -10,7 +10,7 @@ const db = require('./models/posts')
 const app = express();
 
 require('./db')
-// // debug.sequelize.sync();
+
 
 app.use(logger('dev'));
 app.use(express.json());
